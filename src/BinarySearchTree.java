@@ -56,8 +56,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 	 *         the nodes are visited in pre-order.
 	 */
 	public String numChildrenOfEachNode() {
-		// TODO: 3 Write this.
-		return "change me!";
+		return this.root != NULL_NODE ? this.root.numChildrenOfEachNode("") : "";
 	}
 
 	/**
@@ -121,6 +120,12 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 			else
 				depth = this.left.getDepth(item);
 			return depth != 0 ? depth + 1 : 0;
+		}
+
+		public String numChildrenOfEachNode(String output) {
+			return output + "012".charAt((this.left != NULL_NODE ? 1 : 0) + (this.right != NULL_NODE ? 1 : 0))
+					+ (this.left != NULL_NODE ? this.left.numChildrenOfEachNode(output) : "")
+					+ (this.right != NULL_NODE ? this.right.numChildrenOfEachNode(output) : "");
 		}
 	}
 }
