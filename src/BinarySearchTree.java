@@ -1,7 +1,7 @@
 /**
  * Binary Tree practice problems
  * 
- * @author Matt Boutell and <<<YOUR NAME HERE>>>. 2014.
+ * @author Matt Boutell and Cooper Anderson. 2014.
  * @param <T>
  */
 
