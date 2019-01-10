@@ -41,8 +41,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 	 * @return The depth, or -1 if it isn't in the tree.
 	 */
 	public int getDepth(T item) {
-		// TODO: 2 Write this.
-		return -17;
+		return this.root.getDepth(item) - 1;
 	}
 
 	/**
@@ -108,6 +107,20 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
 		public int countPositives() {
 			return ((Integer) this.element > 0 ? 1 : 0) + (this.left != NULL_NODE ? this.left.countPositives() : 0) + (this.right != NULL_NODE ? this.right.countPositives() : 0);
+		}
+
+		public int getDepth(T item) {
+			if (this == NULL_NODE)
+				return 0;
+			int depth;
+			int direction = item.compareTo(this.element);
+			if (direction == 0)
+				return 1;
+			else if (direction > 0)
+				depth = this.right.getDepth(item);
+			else
+				depth = this.left.getDepth(item);
+			return depth != 0 ? depth + 1 : 0;
 		}
 	}
 }
