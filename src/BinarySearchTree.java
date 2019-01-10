@@ -29,8 +29,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 	 * @return The number of positive integers in the tree.
 	 */
 	public int countPositives() {
-		// TODO: 1 Write this.
-		return -17;
+		return this.root != NULL_NODE ? this.root.countPositives() : 0;
 	}
 
 	/**
@@ -105,6 +104,10 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 				// do nothing
 			}
 			return this;
+		}
+
+		public int countPositives() {
+			return ((Integer) this.element > 0 ? 1 : 0) + (this.left != NULL_NODE ? this.left.countPositives() : 0) + (this.right != NULL_NODE ? this.right.countPositives() : 0);
 		}
 	}
 }
