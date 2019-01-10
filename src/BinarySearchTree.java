@@ -28,7 +28,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 	 * 
 	 * @return The number of positive integers in the tree.
 	 */
-
 	public int countPositives() {
 		// TODO: 1 Write this.
 		return -17;
@@ -58,7 +57,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 	 * @return A string representing the number of children of each node when
 	 *         the nodes are visited in pre-order.
 	 */
-
 	public String numChildrenOfEachNode() {
 		// TODO: 3 Write this.
 		return "change me!";
