@@ -70,8 +70,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 	 * @return True if the tree forms a zigzag and false otherwise.
 	 */
 	public boolean isZigZag() {
-		// TODO: 4 Write this.
-		return false;
+		return this.root == NULL_NODE || this.root.isZigZag(0);
 	}
 
 	public void insert(T e) {
@@ -126,6 +125,15 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 			return output + "012".charAt((this.left != NULL_NODE ? 1 : 0) + (this.right != NULL_NODE ? 1 : 0))
 					+ (this.left != NULL_NODE ? this.left.numChildrenOfEachNode(output) : "")
 					+ (this.right != NULL_NODE ? this.right.numChildrenOfEachNode(output) : "");
+		}
+
+		public boolean isZigZag(int direction) {
+			if (this.left == this.right) return true;
+			if (this.right == NULL_NODE)
+				return direction != -1 && this.left.isZigZag(-1);
+			if (this.left == NULL_NODE)
+				return direction != 1 && this.right.isZigZag(1);
+			return false;
 		}
 	}
 }
