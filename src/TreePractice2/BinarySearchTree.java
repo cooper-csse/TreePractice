@@ -7,13 +7,9 @@ package TreePractice2;
  * Integer instead of T since the makeTree method sets the data value of each
  * node to be a depth, which is an Integer.
  * 
- * @author Matt Boutell and <<<YOUR NAME HERE>>>.
- * @param <T>
+ * @author Matt Boutell and Cooper Anderson.
  */
 
-/*
- * TODO: 0 You are to implement the methods below. Use recursion!
- */
 public class BinarySearchTree {
 
 	private BinaryNode root;
