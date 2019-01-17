@@ -1,3 +1,5 @@
+package TreePractice1;
+
 /**
  * Binary Tree practice problems
  * 

@@ -1,3 +1,5 @@
+package TreePractice1;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -5,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.AfterClass;
 import org.junit.Test;
 
-public class Testing {
+public class TestTreePractice1 {
 
 	private static int points = 0;
 	private static int depthPoints = 0;
