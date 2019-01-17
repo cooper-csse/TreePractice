@@ -40,10 +40,8 @@ public class BinarySearchTree {
 	}
 
 	public int getSumOfHeights() {
-		// TODO. 2 Write this.
-		// Can you do it in O(n) time instead of O(n log n) by avoiding repeated
-		// calls to height()?
-		return -17;
+		if (this.root == NULL_NODE) return -1;
+		return this.root.getSumOfHeights()[0];
 	}
 
 	// These are here for testing.
@@ -85,6 +83,12 @@ public class BinarySearchTree {
 			return this;
 		}
 
+		public int[] getSumOfHeights() {
+			int[] left = this.left != NULL_NODE ? this.left.getSumOfHeights() : new int[] {0, 0};
+			int[] right = this.right != NULL_NODE ? this.right.getSumOfHeights() : new int[] {0, 0};
+			return new int[] {left[0] + right[0] + Math.max(left[1], right[1]), Math.max(left[1], right[1]) + 1};
+		}
+
 		public void insertToDepth(Integer maxDepth, Integer currentDepth) {
 			if (currentDepth < maxDepth) {
 				this.left = new BinaryNode(currentDepth + 1);
@@ -101,6 +105,5 @@ public class BinarySearchTree {
 			return "[" + left.toStructuredString() + this.data
 					+ right.toStructuredString() + "]";
 		}
-
 	}
 }
