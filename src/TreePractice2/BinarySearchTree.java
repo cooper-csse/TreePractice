@@ -32,10 +32,11 @@ public class BinarySearchTree {
 	 *            The depth of the leaves in the tree.
 	 */
 	public BinarySearchTree(int maxDepth) {
-		// TODO: 1 Write this.
-		// Hint: You may find it easier if your recursive helper method is
-		// outside of the BinaryNode class.
-
+		if (maxDepth < 0) this.root = NULL_NODE;
+		else {
+			this.root = new BinaryNode(0);
+			this.root.insertToDepth(maxDepth, 0);
+		}
 	}
 
 	public int getSumOfHeights() {
@@ -82,6 +83,15 @@ public class BinarySearchTree {
 				// do nothing
 			}
 			return this;
+		}
+
+		public void insertToDepth(Integer maxDepth, Integer currentDepth) {
+			if (currentDepth < maxDepth) {
+				this.left = new BinaryNode(currentDepth + 1);
+				this.right = new BinaryNode(currentDepth + 1);
+				this.left.insertToDepth(maxDepth, currentDepth + 1);
+				this.right.insertToDepth(maxDepth, currentDepth + 1);
+			}
 		}
 
 		public String toStructuredString() {
